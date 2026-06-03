@@ -8,13 +8,15 @@ https://didixyy.github.io/remote-freelancer-first-sale-kit/
 
 Fastest 10 USD order path:
 
-1. If the file is one CSV or Excel file up to 300 rows and 12 columns, pay 10 USD now:
+1. Start from the direct paid CSV cleanup page:
+   https://didixyy.github.io/remote-freelancer-first-sale-kit/start-csv-cleanup.html
+2. If the file is one CSV or Excel file up to 300 rows and 12 columns, pay 10 USD now:
    https://paypal.me/yp1233/10USD
-2. Then email the paid cleanup brief and include the Payment sender email:
+3. Then email the paid cleanup brief and include the Payment sender email:
    mailto:331596501@qq.com?subject=Paid%2010%20USD%20CSV%20cleanup
-3. If the scope is uncertain, open the task request form before paying:
+4. If the scope is uncertain, open the task request form before paying:
    https://github.com/didixyy/remote-freelancer-first-sale-kit/issues/new?template=csv-cleanup.yml
-4. Or email a spreadsheet cleanup brief before paying:
+5. Or email a spreadsheet cleanup brief before paying:
    mailto:331596501@qq.com?subject=Spreadsheet%20cleanup%20brief
 
 Sample task page:
@@ -24,6 +26,10 @@ https://didixyy.github.io/remote-freelancer-first-sale-kit/samples.html
 Request page:
 
 https://didixyy.github.io/remote-freelancer-first-sale-kit/order.html
+
+Start 10 USD CSV cleanup:
+
+https://didixyy.github.io/remote-freelancer-first-sale-kit/start-csv-cleanup.html
 
 10 USD CSV scope checker:
 
