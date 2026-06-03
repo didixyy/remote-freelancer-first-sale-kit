@@ -6,6 +6,10 @@ Live page:
 
 https://didixyy.github.io/remote-freelancer-first-sale-kit/
 
+Contact for task briefs:
+
+331596501@qq.com
+
 ## Buy
 
 Digital kit, 9.99 USD:
