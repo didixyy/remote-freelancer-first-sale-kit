@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>10 USD CSV Scope Checker</title>
+  <meta name="description" content="Check whether a small CSV or Excel cleanup task fits the fixed 10 USD starter scope before paying.">
+  <link rel="canonical" href="https://didixyy.github.io/remote-freelancer-first-sale-kit/scope-checker.html">
+  <link rel="icon" href="data:,">
+  <meta property="og:title" content="10 USD CSV Scope Checker">
+  <meta property="og:description" content="Enter row and column counts, then choose the fixed 10 USD payment path or request scope review before paying.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://didixyy.github.io/remote-freelancer-first-sale-kit/scope-checker.html">
+  <meta property="og:image" content="https://didixyy.github.io/remote-freelancer-first-sale-kit/assets/remote-work-desk.png">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "10 USD CSV Scope Checker",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --ink: #16212a;
+      --muted: #52616b;
+      --line: #d9e0e5;
+      --paper: #ffffff;
+      --soft: #eef5f1;
+      --accent: #0f766e;
+      --accent-strong: #0b4f4a;
+      --warn: #a15c16;
+      --danger: #9f1d1d;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.55;
+    }
+    .wrap {
+      width: min(1040px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+    header,
+    section {
+      padding: 36px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    header {
+      background: var(--soft);
+    }
+    nav,
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    nav {
+      margin-bottom: 24px;
+    }
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(34px, 6vw, 60px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: 26px;
+      letter-spacing: 0;
+    }
+    p {
+      max-width: 760px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+    a {
+      color: var(--accent-strong);
+    }
+    .button,
+    .secondary-button,
+    .plain-button {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font: inherit;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .button {
+      color: #fff;
+      background: var(--accent);
+      border: 1px solid var(--accent);
+    }
+    .button:hover {
+      background: var(--accent-strong);
+    }
+    .secondary-button {
+      color: var(--accent-strong);
+      background: #fff;
+      border: 1px solid var(--accent);
+    }
+    .plain-button {
+      color: var(--ink);
+      background: #f4f7f8;
+      border: 1px solid var(--line);
+    }
+    .tool-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
+      gap: 18px;
+      align-items: start;
+    }
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fff;
+    }
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font: inherit;
+      background: #fff;
+    }
+    textarea {
+      min-height: 230px;
+      resize: vertical;
+      font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      outline: 3px solid rgba(15, 118, 110, 0.18);
+    }
+    .result {
+      min-height: 150px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #f8faf9;
+    }
+    .result strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+    .result.fixed {
+      border-color: var(--accent);
+      background: #eef8f4;
+    }
+    .result.review {
+      border-color: var(--warn);
+      background: #fff8ed;
+    }
+    .result.error {
+      border-color: var(--danger);
+      background: #fff4f4;
+    }
+    ul {
+      margin: 12px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+    li + li {
+      margin-top: 8px;
+    }
+    .note {
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .warning {
+      color: var(--warn);
+      font-weight: 700;
+    }
+    footer {
+      padding: 28px 0 42px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    @media (max-width: 820px) {
+      .wrap {
+        width: min(100% - 28px, 1040px);
+      }
+      .tool-grid,
+      .field-grid {
+        grid-template-columns: 1fr;
+      }
+      .button,
+      .secondary-button,
+      .plain-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <a class="secondary-button" href="index.html">Service home</a>
+        <a class="secondary-button" href="spreadsheet-cleanup-service.html">Cleanup service</a>
+        <a class="secondary-button" href="csv-cleaner.html">Try free CSV tool</a>
+        <a class="secondary-button" href="csv-cleanup-examples.html">View examples</a>
+        <a class="secondary-button" href="order.html">Request page</a>
+      </nav>
+      <h1>10 USD CSV Scope Checker</h1>
+      <p>Check whether one CSV or Excel cleanup task fits the fixed 10 USD path before paying. The fixed starter scope is one file up to 300 rows and 12 columns.</p>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="wrap tool-grid">
+        <div class="panel">
+          <div class="field-grid">
+            <div>
+              <label for="rowCount">Row count</label>
+              <input id="rowCount" inputmode="numeric" value="120" aria-describedby="scopeNote">
+            </div>
+            <div>
+              <label for="columnCount">Column count</label>
+              <input id="columnCount" inputmode="numeric" value="8" aria-describedby="scopeNote">
+            </div>
+            <div>
+              <label for="fileType">File type</label>
+              <select id="fileType">
+                <option value="csv">CSV</option>
+                <option value="excel">Excel</option>
+              </select>
+            </div>
+            <div>
+              <label for="cleanupType">Cleanup type</label>
+              <select id="cleanupType">
+                <option value="product-csv">Product CSV</option>
+                <option value="order-export">Order export</option>
+                <option value="invoice-contact">Invoice and contact</option>
+                <option value="general-csv">General CSV</option>
+              </select>
+            </div>
+          </div>
+          <p class="note" id="scopeNote">Fixed-scope cleanup covers visible cleanup only: spacing, readable headers, exact duplicates, and a short change note.</p>
+          <div style="margin-top: 16px;">
+            <label for="paymentSenderEmail">Payment sender email</label>
+            <input id="paymentSenderEmail" type="email" placeholder="buyer@example.com">
+          </div>
+          <div class="actions" style="margin-top: 16px;">
+            <button class="button" id="checkButton" type="button">Check scope</button>
+            <button class="plain-button" id="copyBriefButton" type="button">Copy brief</button>
+          </div>
+          <div style="margin-top: 16px;">
+            <label for="briefText">Generated brief</label>
+            <textarea id="briefText" readonly></textarea>
+          </div>
+        </div>
+
+        <aside class="panel">
+          <h2>Result</h2>
+          <div class="result" id="resultBox" role="status" aria-live="polite">
+            <strong>Ready to check</strong>
+            <p>Enter row and column counts to see whether the task fits the fixed 10 USD scope.</p>
+          </div>
+          <div class="actions" style="margin-top: 16px;">
+            <a class="button" id="primaryAction" href="https://paypal.me/yp1233/10USD">Pay 10 USD now</a>
+            <a class="secondary-button" id="emailAction" href="mailto:331596501@qq.com?subject=CSV%20cleanup%20scope%20review">Email brief</a>
+            <a class="secondary-button" href="https://github.com/didixyy/remote-freelancer-first-sale-kit/issues/new?template=csv-cleanup.yml">Open request form</a>
+          </div>
+          <p class="note">Use the payment button only when the checker says the file fits the fixed scope. Include the Payment sender email in the brief.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Fixed 10 USD scope</h2>
+        <ul>
+          <li>One CSV or Excel file up to 300 rows and 12 columns.</li>
+          <li>Visible cleanup only: trim spacing, readable column labels, obvious duplicate rows, and a short change note.</li>
+          <li>Use the scope review form before paying if the file is larger or the cleanup rule is unclear.</li>
+          <li><span class="warning">No accounting, tax, legal, investment, or audit work.</span></li>
+          <li>No guaranteed income, import success, marketplace approval, shipping result, or payment dispute result is promised.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Contact: 331596501@qq.com. Confirm scope before paying: https://paypal.me/yp1233/10USD</div>
+  </footer>
+
+  <script type="module">
+    import { buildScopeEmail, evaluateScope } from "./assets/scope-checker.mjs";
+
+    const rowCount = document.getElementById("rowCount");
+    const columnCount = document.getElementById("columnCount");
+    const fileType = document.getElementById("fileType");
+    const cleanupType = document.getElementById("cleanupType");
+    const paymentSenderEmail = document.getElementById("paymentSenderEmail");
+    const resultBox = document.getElementById("resultBox");
+    const primaryAction = document.getElementById("primaryAction");
+    const emailAction = document.getElementById("emailAction");
+    const briefText = document.getElementById("briefText");
+    const checkButton = document.getElementById("checkButton");
+    const copyBriefButton = document.getElementById("copyBriefButton");
+
+    let latestResult = null;
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    async function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return;
+      }
+
+      const copyArea = document.createElement("textarea");
+      copyArea.value = text;
+      copyArea.setAttribute("readonly", "");
+      copyArea.style.position = "fixed";
+      copyArea.style.top = "-1000px";
+      document.body.append(copyArea);
+      copyArea.select();
+      document.execCommand("copy");
+      copyArea.remove();
+    }
+
+    function renderResult(result) {
+      latestResult = result;
+      const title = result.status === "fixed-scope"
+        ? "Fits the fixed 10 USD path"
+        : result.status === "scope-review"
+          ? "Needs scope review first"
+          : "Enter valid counts";
+      const resultClass = result.status === "fixed-scope"
+        ? "result fixed"
+        : result.status === "scope-review"
+          ? "result review"
+          : "result error";
+      const reasons = result.reasons.map((reason) => `<li>${escapeHtml(reason)}</li>`).join("");
+
+      resultBox.className = resultClass;
+      resultBox.innerHTML = `<strong>${title}</strong><p>${escapeHtml(result.nextAction)}</p><ul>${reasons}</ul>`;
+      briefText.value = result.brief;
+      emailAction.href = buildScopeEmail(result, paymentSenderEmail.value);
+      primaryAction.href = result.canPayNow ? result.paymentUrl : result.requestUrl;
+      primaryAction.textContent = result.canPayNow ? "Pay 10 USD now" : "Open request form";
+    }
+
+    function checkScope() {
+      renderResult(evaluateScope({
+        rowCount: rowCount.value,
+        columnCount: columnCount.value,
+        fileType: fileType.value,
+        cleanupType: cleanupType.value
+      }));
+    }
+
+    for (const control of [rowCount, columnCount, fileType, cleanupType, paymentSenderEmail]) {
+      control.addEventListener("input", checkScope);
+      control.addEventListener("change", checkScope);
+    }
+
+    checkButton.addEventListener("click", checkScope);
+
+    copyBriefButton.addEventListener("click", async () => {
+      if (!latestResult) {
+        checkScope();
+      }
+
+      await copyText(briefText.value);
+      copyBriefButton.textContent = "Brief copied";
+    });
+
+    checkScope();
+  </script>
+</body>
+</html>
