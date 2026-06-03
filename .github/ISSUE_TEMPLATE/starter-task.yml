@@ -1,0 +1,61 @@
+name: Starter task request
+description: Request a narrow 10 USD starter task before payment.
+title: "[Starter task] "
+labels: ["starter-task"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do not pay before the scope is confirmed. Work starts only after the task fits the starter scope and payment is visible in PayPal.
+  - type: dropdown
+    id: task_type
+    attributes:
+      label: Task type
+      description: Choose the closest starter task.
+      options:
+        - Spreadsheet cleanup
+        - Product description rewrite
+        - One-page summary
+        - English proofreading
+        - Other narrow task
+    validations:
+      required: true
+  - type: textarea
+    id: brief
+    attributes:
+      label: File or brief
+      description: Describe the file, text, or notes. Do not paste private credentials or payment data.
+      placeholder: What should be cleaned, rewritten, summarized, or proofread?
+    validations:
+      required: true
+  - type: input
+    id: deadline
+    attributes:
+      label: Deadline
+      description: When do you need the starter task delivered?
+      placeholder: Example: within 24 hours
+    validations:
+      required: true
+  - type: textarea
+    id: avoid
+    attributes:
+      label: Anything to avoid changing
+      description: List content, formatting, or wording that should stay untouched.
+      placeholder: Keep the original product claims unchanged.
+  - type: textarea
+    id: success
+    attributes:
+      label: What should the finished task look like?
+      description: Describe the expected result in one or two sentences.
+      placeholder: A cleaner spreadsheet with consistent column names and obvious duplicates removed.
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Starter task terms
+      options:
+        - label: I understand this is a narrow starter task, not accounting, tax, legal, research, or guaranteed-income advice.
+          required: true
+        - label: I understand payment should be sent only after the starter scope is confirmed.
+          required: true
