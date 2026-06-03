@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://didixyy.github.io/remote-freelancer-first-sale-kit/sitemap.xml
