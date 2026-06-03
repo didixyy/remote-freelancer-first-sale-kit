@@ -14,6 +14,10 @@ Request page:
 
 https://didixyy.github.io/remote-freelancer-first-sale-kit/order.html
 
+10 USD spreadsheet cleanup service:
+
+https://didixyy.github.io/remote-freelancer-first-sale-kit/spreadsheet-cleanup-service.html
+
 Free CSV cleanup tool:
 
 https://didixyy.github.io/remote-freelancer-first-sale-kit/csv-cleaner.html
