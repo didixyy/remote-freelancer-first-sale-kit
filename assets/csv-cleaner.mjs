@@ -211,3 +211,34 @@ export function toCsv(headers, rows) {
     .join("\n");
 }
 
+export function buildCleanupBrief(result) {
+  const stats = result?.stats ?? {};
+  const headers = Array.isArray(result?.headers) ? result.headers : [];
+  const cleanedRows = stats.cleanedRows ?? 0;
+  const removedBlankRows = stats.removedBlankRows ?? 0;
+  const removedDuplicateRows = stats.removedDuplicateRows ?? 0;
+  const columns = stats.columns ?? headers.length;
+  const headerLine = headers.length > 0 ? headers.join(", ") : "not sure";
+
+  return [
+    "Hi,",
+    "",
+    "I want to confirm a 10 USD spreadsheet cleanup task.",
+    "",
+    "Quick tool result:",
+    `Rows after quick cleanup: ${cleanedRows}`,
+    `Blank rows removed by the tool: ${removedBlankRows}`,
+    `Duplicate rows removed by the tool: ${removedDuplicateRows}`,
+    `Detected columns: ${columns}`,
+    `Column names: ${headerLine}`,
+    "",
+    "What I need checked manually:",
+    "- Please review whether the cleanup result is readable.",
+    "- Please return a cleaned CSV or Excel workbook.",
+    "- Please include a short note explaining what changed.",
+    "",
+    "Please confirm scope before I pay.",
+    "Contact: 331596501@qq.com",
+    "Payment after scope confirmation: https://paypal.me/yp1233/10USD"
+  ].join("\n");
+}

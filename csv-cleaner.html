@@ -261,6 +261,7 @@
               <button class="button" id="cleanButton" type="button">Clean preview</button>
               <button class="plain-button" id="sampleButton" type="button">Use sample data</button>
               <button class="secondary-button" id="copyButton" type="button">Copy cleaned CSV</button>
+              <button class="secondary-button" id="briefButton" type="button">Copy cleanup brief</button>
               <button class="secondary-button" id="downloadButton" type="button">Download CSV</button>
             </div>
             <div class="message" id="message" role="status" aria-live="polite"></div>
@@ -277,6 +278,7 @@
             <p class="note">This tool handles small visible cleanup only. It does not verify data accuracy, payments, taxes, accounting, or legal status.</p>
             <div class="actions" style="margin-top: 16px;">
               <a class="button" href="order.html">Send a cleanup brief</a>
+              <a class="secondary-button" id="emailBriefLink" href="mailto:331596501@qq.com?subject=Spreadsheet%20cleanup%20brief">Email generated brief</a>
               <a class="secondary-button" href="https://paypal.me/yp1233/10USD">Pay confirmed 10 USD task</a>
             </div>
           </aside>
@@ -314,7 +316,7 @@
   </footer>
 
   <script type="module">
-    import { cleanDelimitedText, toCsv } from "./assets/csv-cleaner.mjs";
+    import { buildCleanupBrief, cleanDelimitedText, toCsv } from "./assets/csv-cleaner.mjs";
 
     const sampleText = [
       " name , email , amount , notes ",
@@ -330,13 +332,16 @@
     const cleanButton = document.getElementById("cleanButton");
     const sampleButton = document.getElementById("sampleButton");
     const copyButton = document.getElementById("copyButton");
+    const briefButton = document.getElementById("briefButton");
     const downloadButton = document.getElementById("downloadButton");
+    const emailBriefLink = document.getElementById("emailBriefLink");
     const cleanedRows = document.getElementById("cleanedRows");
     const removedBlankRows = document.getElementById("removedBlankRows");
     const removedDuplicateRows = document.getElementById("removedDuplicateRows");
     const columnCount = document.getElementById("columnCount");
 
     let latestCsv = "";
+    let latestBrief = "";
 
     function escapeHtml(value) {
       return String(value)
@@ -367,11 +372,30 @@
       preview.innerHTML = `<table><thead><tr>${headHtml}</tr></thead><tbody>${bodyHtml}</tbody></table>`;
     }
 
+    async function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return;
+      }
+
+      const copyArea = document.createElement("textarea");
+      copyArea.value = text;
+      copyArea.setAttribute("readonly", "");
+      copyArea.style.position = "fixed";
+      copyArea.style.top = "-1000px";
+      document.body.append(copyArea);
+      copyArea.select();
+      document.execCommand("copy");
+      copyArea.remove();
+    }
+
     function cleanInput() {
       const text = rawInput.value;
 
       if (text.trim().length === 0) {
         latestCsv = "";
+        latestBrief = "";
+        emailBriefLink.href = "mailto:331596501@qq.com?subject=Spreadsheet%20cleanup%20brief";
         renderPreview([], []);
         setMessage("Paste data first, or load the sample data.", true);
         return;
@@ -379,6 +403,8 @@
 
       const result = cleanDelimitedText(text);
       latestCsv = toCsv(result.headers, result.rows);
+      latestBrief = buildCleanupBrief(result);
+      emailBriefLink.href = `mailto:331596501@qq.com?subject=${encodeURIComponent("Spreadsheet cleanup brief")}&body=${encodeURIComponent(latestBrief)}`;
       cleanedRows.textContent = result.stats.cleanedRows;
       removedBlankRows.textContent = result.stats.removedBlankRows;
       removedDuplicateRows.textContent = result.stats.removedDuplicateRows;
@@ -403,8 +429,21 @@
         return;
       }
 
-      await navigator.clipboard.writeText(latestCsv);
+      await copyText(latestCsv);
       setMessage("Cleaned CSV copied.");
+    });
+
+    briefButton.addEventListener("click", async () => {
+      if (!latestBrief) {
+        cleanInput();
+      }
+
+      if (!latestBrief) {
+        return;
+      }
+
+      await copyText(latestBrief);
+      setMessage("Cleanup brief copied. Send it before paying.");
     });
 
     downloadButton.addEventListener("click", () => {
