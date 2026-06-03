@@ -29,6 +29,10 @@ https://didixyy.github.io/remote-freelancer-first-sale-kit/order.html
 
 https://didixyy.github.io/remote-freelancer-first-sale-kit/scope-checker.html
 
+Sample CSV cleanup delivery:
+
+https://didixyy.github.io/remote-freelancer-first-sale-kit/csv-cleanup-delivery-example.html
+
 10 USD spreadsheet cleanup service:
 
 https://didixyy.github.io/remote-freelancer-first-sale-kit/spreadsheet-cleanup-service.html
@@ -56,7 +60,7 @@ Free CSV cleanup tool:
 
 https://didixyy.github.io/remote-freelancer-first-sale-kit/csv-cleaner.html
 
-The scope checker decides whether a small file fits the fixed 10 USD path. The free CSV tool cleans a small pasted table and generates a copyable manual cleanup brief for confirmed 10 USD tasks.
+The scope checker decides whether a small file fits the fixed 10 USD path. The delivery example shows the cleaned file, delivery note, and revision limit. The free CSV tool cleans a small pasted table and generates a copyable manual cleanup brief for confirmed 10 USD tasks.
 
 Free sample workbook:
 

@@ -1,0 +1,36 @@
+10 USD CSV cleanup delivery note
+
+Task type: Product CSV cleanup
+File type: CSV
+Rows reviewed: 6
+Columns reviewed: 7
+Delivery file: product-csv-after.csv
+
+What changed
+
+- Trimmed extra spaces in product names, SKU values, category values, and status values.
+- Normalized readable column labels so the file is easier to scan before import.
+- Lowercased obvious email-style values when present in the sample data.
+- Removed one obvious repeated product row from the sample.
+- Kept visible product data intact instead of inventing missing values.
+
+Items flagged for buyer review
+
+- Confirm the final SKU values before importing into a store platform.
+- Confirm whether inactive products should stay inactive.
+- Confirm whether blank optional fields should stay blank.
+
+Revision limit
+
+One small revision is included if the requested change stays inside the same visible cleanup scope.
+
+Not included
+
+No accounting, tax, legal, investment, or audit work.
+No private credentials, bank details, card data, or passwords.
+No guaranteed income, import success, marketplace approval, or sales result is promised.
+
+Contact
+
+Email: 331596501@qq.com
+Payment link for a confirmed fixed-scope task: https://paypal.me/yp1233/10USD
