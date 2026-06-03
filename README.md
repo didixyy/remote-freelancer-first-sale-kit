@@ -6,6 +6,10 @@ Live page:
 
 https://didixyy.github.io/remote-freelancer-first-sale-kit/
 
+Sample task page:
+
+https://didixyy.github.io/remote-freelancer-first-sale-kit/samples.html
+
 Contact for task briefs:
 
 331596501@qq.com
