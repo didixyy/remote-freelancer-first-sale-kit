@@ -18,6 +18,10 @@ Free sample workbook:
 
 https://didixyy.github.io/remote-freelancer-first-sale-kit/assets/free-spreadsheet-cleanup-sample.xlsx
 
+Spreadsheet cleanup checklist:
+
+https://didixyy.github.io/remote-freelancer-first-sale-kit/spreadsheet-cleanup-checklist.html
+
 Start here issue:
 
 https://github.com/didixyy/remote-freelancer-first-sale-kit/issues/1
