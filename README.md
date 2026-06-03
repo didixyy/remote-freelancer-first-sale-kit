@@ -37,10 +37,16 @@ Specific CSV cleanup pages:
   https://didixyy.github.io/remote-freelancer-first-sale-kit/csv-cleanup-examples.html
 - Product CSV cleanup:
   https://didixyy.github.io/remote-freelancer-first-sale-kit/product-csv-cleanup.html
+  Focused public Gist:
+  https://gist.github.com/didixyy/6ed401a0446d1930b9496742103ad05f
 - Order export CSV cleanup:
   https://didixyy.github.io/remote-freelancer-first-sale-kit/order-export-csv-cleanup.html
+  Focused public Gist:
+  https://gist.github.com/didixyy/f35a474981e65e34f80000ddf98afd8e
 - Invoice and contact CSV cleanup:
   https://didixyy.github.io/remote-freelancer-first-sale-kit/invoice-contact-csv-cleanup.html
+  Focused public Gist:
+  https://gist.github.com/didixyy/f80c1fdfb5a476b15ce722e2c5291079
 
 Free CSV cleanup tool:
 
