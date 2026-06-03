@@ -14,6 +14,10 @@ Request page:
 
 https://didixyy.github.io/remote-freelancer-first-sale-kit/order.html
 
+Free CSV cleanup tool:
+
+https://didixyy.github.io/remote-freelancer-first-sale-kit/csv-cleaner.html
+
 Free sample workbook:
 
 https://didixyy.github.io/remote-freelancer-first-sale-kit/assets/free-spreadsheet-cleanup-sample.xlsx
