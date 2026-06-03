@@ -15,21 +15,82 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "10 USD Spreadsheet Cleanup Service",
-      "description": "A narrow manual cleanup service for one small CSV or Excel file after scope is confirmed.",
-      "provider": {
-        "@type": "Person",
-        "email": "331596501@qq.com"
-      },
-      "areaServed": "Worldwide",
-      "offers": {
-        "@type": "Offer",
-        "price": "10.00",
-        "priceCurrency": "USD",
-        "url": "https://paypal.me/yp1233/10USD",
-        "availability": "https://schema.org/InStock"
-      }
+      "@graph": [
+        {
+          "@type": "Service",
+          "@id": "https://didixyy.github.io/remote-freelancer-first-sale-kit/spreadsheet-cleanup-service.html#service",
+          "name": "10 USD Spreadsheet Cleanup Service",
+          "serviceType": "Spreadsheet cleanup",
+          "description": "A narrow manual cleanup service for one small CSV or Excel file after scope is confirmed.",
+          "provider": {
+            "@type": "Person",
+            "email": "331596501@qq.com",
+            "url": "https://github.com/didixyy"
+          },
+          "areaServed": "Worldwide",
+          "availableChannel": {
+            "@type": "ServiceChannel",
+            "serviceUrl": "https://github.com/didixyy/remote-freelancer-first-sale-kit/issues/new?template=starter-task.yml",
+            "availableLanguage": "English"
+          },
+          "offers": {
+            "@type": "Offer",
+            "@id": "https://didixyy.github.io/remote-freelancer-first-sale-kit/spreadsheet-cleanup-service.html#offer",
+            "price": "10.00",
+            "priceCurrency": "USD",
+            "url": "https://paypal.me/yp1233/10USD",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://didixyy.github.io/remote-freelancer-first-sale-kit/spreadsheet-cleanup-service.html#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I request the 10 USD cleanup?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Open the GitHub task request or email the cleanup brief first. Payment is requested only after the starter scope is confirmed."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How large can the starter file be?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The starter scope is for one small CSV or Excel file that can be reviewed and cleaned within about 45 minutes."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When should I pay?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pay through PayPal.Me only after the scope is accepted. Work starts after payment is visible in PayPal."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://didixyy.github.io/remote-freelancer-first-sale-kit/spreadsheet-cleanup-service.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Service home",
+              "item": "https://didixyy.github.io/remote-freelancer-first-sale-kit/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Spreadsheet cleanup service",
+              "item": "https://didixyy.github.io/remote-freelancer-first-sale-kit/spreadsheet-cleanup-service.html"
+            }
+          ]
+        }
+      ]
     }
   </script>
   <style>
@@ -140,6 +201,25 @@
     }
     .item span {
       color: var(--muted);
+    }
+    .faq {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    details {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fff;
+    }
+    summary {
+      color: var(--ink);
+      font-weight: 700;
+    }
+    details p {
+      margin-top: 10px;
+      font-size: 16px;
     }
     .split {
       display: grid;
@@ -259,6 +339,26 @@
           <div class="item"><strong>Before and after examples</strong><span>Review the <a href="samples.html">sample task page</a> to see the kind of cleanup that fits.</span></div>
           <div class="item"><strong>Workbook sample</strong><span>Download the <a href="assets/free-spreadsheet-cleanup-sample.xlsx">free spreadsheet cleanup sample workbook</a>.</span></div>
           <div class="item"><strong>Checklist</strong><span>Use the <a href="spreadsheet-cleanup-checklist.html">spreadsheet cleanup checklist</a> or download the <a href="assets/spreadsheet-cleanup-checklist.pdf">checklist PDF</a> to decide whether the starter scope is enough.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Quick questions</h2>
+        <div class="faq">
+          <details open>
+            <summary>How do I request the 10 USD cleanup?</summary>
+            <p>Open the GitHub task request or email the cleanup brief first. Payment is requested only after the starter scope is confirmed.</p>
+          </details>
+          <details>
+            <summary>How large can the starter file be?</summary>
+            <p>The starter scope is for one small CSV or Excel file that can be reviewed and cleaned within about 45 minutes.</p>
+          </details>
+          <details>
+            <summary>When should I pay?</summary>
+            <p>Pay through PayPal.Me only after the scope is accepted. Work starts after payment is visible in PayPal.</p>
+          </details>
         </div>
       </div>
     </section>
