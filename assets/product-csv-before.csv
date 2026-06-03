@@ -1,0 +1,5 @@
+sku,product,price,status,notes
+sku-001,  blue mug,12.00,active,
+SKU-001,blue mug,12.00,active,duplicate row
+sku-002,travel bottle ,18,draft,needs title spacing
+sku-003,desk lamp,39.99, ACTIVE ,

@@ -1,0 +1,5 @@
+order id,customer,email,status,date
+1001, Mira Lane ,mira@example.com, paid,2026-05-31
+1001,Mira Lane,mira@example.com,paid,2026-05-31
+1002,Jon Price, jon@example.com ,pending ,2026-06-01
+1003,Lee Chen,lee@example.com, SHIPPED,2026-06-02

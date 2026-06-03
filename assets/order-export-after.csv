@@ -1,0 +1,4 @@
+Order ID,Customer Name,Email,Status,Date,Notes
+1001,Mira Lane,mira@example.com,Paid,2026-05-31,Kept first visible row
+1002,Jon Price,jon@example.com,Pending,2026-06-01,Trimmed spacing
+1003,Lee Chen,lee@example.com,Shipped,2026-06-02,Standardized status

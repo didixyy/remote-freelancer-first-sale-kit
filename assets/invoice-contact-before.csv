@@ -1,0 +1,5 @@
+invoice,contact,email,status,amount
+INV-10, Ana Ruiz ,ana@example.com, sent,120
+INV-10,Ana Ruiz,ana@example.com,sent,120
+INV-11,Ken Ito, ken@example.com ,PAID,85.5
+INV-12,Nora Fox,nora@example.com, draft ,

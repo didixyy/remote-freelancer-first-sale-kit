@@ -33,6 +33,8 @@ Specific CSV cleanup pages:
 
 - CSV order desk:
   https://github.com/didixyy/remote-freelancer-first-sale-kit/issues/3
+- CSV cleanup examples:
+  https://didixyy.github.io/remote-freelancer-first-sale-kit/csv-cleanup-examples.html
 - Product CSV cleanup:
   https://didixyy.github.io/remote-freelancer-first-sale-kit/product-csv-cleanup.html
 - Order export CSV cleanup:

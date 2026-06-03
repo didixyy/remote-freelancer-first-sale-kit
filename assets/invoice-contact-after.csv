@@ -1,0 +1,4 @@
+Invoice ID,Contact Name,Email,Status,Amount USD,Notes
+INV-10,Ana Ruiz,ana@example.com,Sent,120.00,Kept first visible row
+INV-11,Ken Ito,ken@example.com,Paid,85.50,Trimmed spacing
+INV-12,Nora Fox,nora@example.com,Draft,,Left blank amount unchanged
