@@ -40,6 +40,10 @@ Spreadsheet cleanup checklist PDF:
 
 https://didixyy.github.io/remote-freelancer-first-sale-kit/assets/spreadsheet-cleanup-checklist.pdf
 
+Spreadsheet cleanup checklist PDF release:
+
+https://github.com/didixyy/remote-freelancer-first-sale-kit/releases/tag/spreadsheet-cleanup-checklist-v1
+
 Start here issue:
 
 https://github.com/didixyy/remote-freelancer-first-sale-kit/issues/1
