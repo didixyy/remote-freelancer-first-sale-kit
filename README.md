@@ -31,6 +31,8 @@ https://didixyy.github.io/remote-freelancer-first-sale-kit/spreadsheet-cleanup-s
 
 Specific CSV cleanup pages:
 
+- CSV order desk:
+  https://github.com/didixyy/remote-freelancer-first-sale-kit/issues/3
 - Product CSV cleanup:
   https://didixyy.github.io/remote-freelancer-first-sale-kit/product-csv-cleanup.html
 - Order export CSV cleanup:
