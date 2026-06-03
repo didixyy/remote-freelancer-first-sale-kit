@@ -14,6 +14,10 @@ Request page:
 
 https://didixyy.github.io/remote-freelancer-first-sale-kit/order.html
 
+Start here issue:
+
+https://github.com/didixyy/remote-freelancer-first-sale-kit/issues/1
+
 Contact for task briefs:
 
 331596501@qq.com
