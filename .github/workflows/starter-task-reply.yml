@@ -4,6 +4,7 @@ on:
   issues:
     types:
       - opened
+      - edited
 
 permissions:
   issues: write
@@ -17,6 +18,7 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
+            const action = context.payload.action;
             const labels = context.payload.issue.labels.map((label) => label.name);
             const isCsvCleanup = labels.includes("csv-cleanup");
             const isStarterTask = labels.includes("starter-task");
@@ -43,6 +45,7 @@ jobs:
             const columnCount = parsePositiveNumber(extractIssueFormValue(issueBody, "Column count"));
             const isPaidBrief = isCsvCleanup && paymentSenderEmail && paymentSenderEmail.toLowerCase() !== "_no response_";
             const isOverLimit = isCsvCleanup && ((rowCount !== null && rowCount > 300) || (columnCount !== null && columnCount > 12));
+            const shouldCreateInitialComment = action === "opened";
 
             const csvCleanupBody = [
               "CSV cleanup request received.",
@@ -71,10 +74,10 @@ jobs:
             ].join("\\n");
 
             const csvFollowUps = [];
-            const labelsToAdd = [];
+            const desiredLabels = [];
 
             if (isPaidBrief) {
-              labelsToAdd.push("paid-brief");
+              desiredLabels.push("paid-brief");
               csvFollowUps.push(
                 "",
                 "Payment matching note:",
@@ -84,7 +87,7 @@ jobs:
             }
 
             if (isOverLimit) {
-              labelsToAdd.push("over-limit");
+              desiredLabels.push("over-limit");
               csvFollowUps.push(
                 "",
                 "This request appears to be over the fixed 10 USD scope.",
@@ -92,6 +95,12 @@ jobs:
                 "Please wait for scope confirmation before paying or sending more files."
               );
             }
+
+            const managedLabels = ["paid-brief", "over-limit"];
+            const labelsToAdd = desiredLabels.filter((label) => !labels.includes(label));
+            const labelsToRemove = isCsvCleanup
+              ? managedLabels.filter((label) => labels.includes(label) && !desiredLabels.includes(label))
+              : [];
 
             const starterTaskBody = [
               "Thanks for sending a starter task brief.",
@@ -126,9 +135,42 @@ jobs:
               });
             }
 
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.payload.issue.number,
-              body
-            });
+            for (const label of labelsToRemove) {
+              await github.rest.issues.removeLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.issue.number,
+                name: label
+              });
+            }
+
+            if (shouldCreateInitialComment) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.issue.number,
+                body
+              });
+              return;
+            }
+
+            if (isCsvCleanup && (labelsToAdd.length > 0 || labelsToRemove.length > 0)) {
+              const updateBody = [
+                "CSV request updated after edit.",
+                "",
+                labelsToAdd.length > 0 ? `Labels added: ${labelsToAdd.join(", ")}` : "",
+                labelsToRemove.length > 0 ? `Labels removed: ${labelsToRemove.join(", ")}` : "",
+                "",
+                "Payment sender email is used only to match a visible PayPal payment to this request.",
+                "Scope checker: https://didixyy.github.io/remote-freelancer-first-sale-kit/scope-checker.html",
+                "Sample delivery: https://didixyy.github.io/remote-freelancer-first-sale-kit/csv-cleanup-delivery-example.html",
+                "Payment link for confirmed fixed-scope work: https://paypal.me/yp1233/10USD"
+              ].filter(Boolean).join("\\n");
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.issue.number,
+                body: updateBody
+              });
+            }
