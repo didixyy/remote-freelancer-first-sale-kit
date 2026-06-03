@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Remote Freelancer First Sale Kit</title>
+  <meta name="description" content="Templates, outreach scripts, and small 24-hour freelance services for landing practical remote work tasks.">
+  <style>
+    :root {
+      --ink: #16212a;
+      --muted: #52616b;
+      --line: #d9e0e5;
+      --paper: #ffffff;
+      --soft: #eef5f1;
+      --accent: #0f766e;
+      --accent-strong: #0b4f4a;
+      --warn: #a15c16;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.55;
+    }
+    main {
+      overflow: hidden;
+    }
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 520px);
+      gap: 40px;
+      align-items: center;
+      min-height: 88vh;
+      padding: 40px 0 32px;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-copy {
+      display: grid;
+      gap: 18px;
+      align-content: center;
+    }
+    .eyebrow {
+      margin: 0;
+      color: var(--accent-strong);
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(36px, 6vw, 68px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 0 0 18px;
+      font-size: 26px;
+      letter-spacing: 0;
+    }
+    p {
+      margin: 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+    .price-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 4px;
+    }
+    .price {
+      color: var(--ink);
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      color: #fff;
+      background: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .button:hover {
+      background: var(--accent-strong);
+    }
+    .secondary-button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      color: var(--accent-strong);
+      background: #fff;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .hero-image {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 42px rgba(22, 33, 42, 0.14);
+    }
+    .band {
+      padding: 42px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .band.soft {
+      background: var(--soft);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .item {
+      min-height: 112px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fff;
+    }
+    .item strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+    .item span {
+      color: var(--muted);
+    }
+    .split {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      align-items: start;
+    }
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+    li + li {
+      margin-top: 8px;
+    }
+    .warning {
+      color: var(--warn);
+      font-weight: 700;
+    }
+    footer {
+      padding: 28px 0 42px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    @media (max-width: 760px) {
+      .wrap {
+        width: min(100% - 28px, 1120px);
+      }
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 28px;
+      }
+      .hero-image {
+        order: -1;
+      }
+      .split {
+        grid-template-columns: 1fr;
+      }
+      .button,
+      .secondary-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="wrap hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Remote work templates and 24-hour micro services</p>
+        <h1>Remote Freelancer First Sale Kit</h1>
+        <p>A practical template pack and small-task service menu for people who want a clear path to their first 10-25 USD remote orders.</p>
+        <div class="price-row">
+          <div class="price">Kit: 9.99 USD</div>
+          <div class="note">Manual delivery after PayPal payment is visible.</div>
+        </div>
+        <div class="actions">
+          <a class="button" href="https://paypal.me/yp1233/9.99USD">Buy the kit</a>
+          <a class="secondary-button" href="https://paypal.me/yp1233/10USD">Order a 10 USD task</a>
+        </div>
+      </div>
+      <img class="hero-image" src="assets/remote-work-desk.png" alt="Organized remote work desk with a laptop spreadsheet dashboard and notebook checklist">
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <h2>What the kit includes</h2>
+        <div class="grid">
+          <div class="item"><strong>Starter service menu</strong><span>Simple 10-25 USD offers for spreadsheet cleanup, summaries, rewrites, and proofreading.</span></div>
+          <div class="item"><strong>Outreach scripts</strong><span>First messages, follow-ups, community posts, and conversion replies.</span></div>
+          <div class="item"><strong>Delivery system</strong><span>Buyer intake questions, scope control, delivery checklist, and revision limits.</span></div>
+          <div class="item"><strong>Income tracker</strong><span>A workbook for messages sent, replies, orders, fees, and net revenue.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band soft">
+      <div class="wrap split">
+        <div>
+          <h2>10 USD task service</h2>
+          <p>I can handle one narrow 24-hour task after scope is confirmed.</p>
+        </div>
+        <ul>
+          <li>Clean and format one small spreadsheet.</li>
+          <li>Rewrite one short product description.</li>
+          <li>Turn rough notes into a clean one-page summary.</li>
+          <li>Proofread up to 500 words of English text.</li>
+          <li>One small revision is included.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap split">
+        <div>
+          <h2>How delivery works</h2>
+          <p>Payment alone does not start a vague job. Send the file or brief first for service tasks, then pay after scope is confirmed.</p>
+        </div>
+        <ul>
+          <li>Kit buyers pay 9.99 USD and send a short payment note for manual delivery.</li>
+          <li>Service buyers send the task brief first, then pay 10 USD after the scope is accepted.</li>
+          <li>Work starts only after the payment is visible in PayPal.</li>
+          <li><span class="warning">No guaranteed income is promised.</span> The kit provides templates and a repeatable sales routine.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">PayPal.Me: https://paypal.me/yp1233. For platform checkout, replace the payment buttons with Ko-fi, Payhip, Lemon Squeezy, Fiverr, or Upwork links after publishing.</div>
+  </footer>
+</body>
+</html>
