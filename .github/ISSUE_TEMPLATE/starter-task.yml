@@ -1,7 +1,7 @@
 name: Starter task request
 description: Request a narrow 10 USD starter task before payment.
 title: "[Starter task] "
-labels: ["starter-task"]
+labels: ["starter-task", "scope-review", "paid-after-confirmed"]
 body:
   - type: markdown
     attributes:
