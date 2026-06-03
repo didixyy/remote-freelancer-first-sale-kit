@@ -25,6 +25,25 @@ jobs:
               return;
             }
 
+            const extractIssueFormValue = (body, fieldName) => {
+              const escapedFieldName = fieldName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+              const pattern = new RegExp(`### ${escapedFieldName}\\n\\n([\\s\\S]*?)(?=\\n\\n### |$)`, "i");
+              const match = body.match(pattern);
+              return match ? match[1].trim() : "";
+            };
+
+            const parsePositiveNumber = (value) => {
+              const match = value.match(/\\d+/);
+              return match ? Number.parseInt(match[0], 10) : null;
+            };
+
+            const issueBody = context.payload.issue.body || "";
+            const paymentSenderEmail = extractIssueFormValue(issueBody, "Payment sender email");
+            const rowCount = parsePositiveNumber(extractIssueFormValue(issueBody, "Row count"));
+            const columnCount = parsePositiveNumber(extractIssueFormValue(issueBody, "Column count"));
+            const isPaidBrief = isCsvCleanup && paymentSenderEmail && paymentSenderEmail.toLowerCase() !== "_no response_";
+            const isOverLimit = isCsvCleanup && ((rowCount !== null && rowCount > 300) || (columnCount !== null && columnCount > 12));
+
             const csvCleanupBody = [
               "CSV cleanup request received.",
               "",
@@ -48,6 +67,29 @@ jobs:
               "Please keep private credentials, bank details, and payment card data out of the issue."
             ].join("\\n");
 
+            const csvFollowUps = [];
+            const labelsToAdd = [];
+
+            if (isPaidBrief) {
+              labelsToAdd.push("paid-brief");
+              csvFollowUps.push(
+                "",
+                "Payment matching note:",
+                "",
+                "The request includes a Payment sender email. Please keep the issue open until the payment is visible in PayPal and matched manually."
+              );
+            }
+
+            if (isOverLimit) {
+              labelsToAdd.push("over-limit");
+              csvFollowUps.push(
+                "",
+                "This request appears to be over the fixed 10 USD scope.",
+                "",
+                "Please wait for scope confirmation before paying or sending more files."
+              );
+            }
+
             const starterTaskBody = [
               "Thanks for sending a starter task brief.",
               "",
@@ -67,7 +109,16 @@ jobs:
               "Please keep private credentials, bank details, and payment card data out of the issue."
             ].join("\\n");
 
-            const body = isCsvCleanup ? csvCleanupBody : starterTaskBody;
+            const body = isCsvCleanup ? `${csvCleanupBody}${csvFollowUps.join("\\n")}` : starterTaskBody;
+
+            if (labelsToAdd.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.issue.number,
+                labels: labelsToAdd
+              });
+            }
 
             await github.rest.issues.createComment({
               owner: context.repo.owner,
