@@ -13,7 +13,7 @@ Fastest 10 USD order path:
 2. Then email the paid cleanup brief and include the Payment sender email:
    mailto:331596501@qq.com?subject=Paid%2010%20USD%20CSV%20cleanup
 3. If the scope is uncertain, open the task request form before paying:
-   https://github.com/didixyy/remote-freelancer-first-sale-kit/issues/new?template=starter-task.yml
+   https://github.com/didixyy/remote-freelancer-first-sale-kit/issues/new?template=csv-cleanup.yml
 4. Or email a spreadsheet cleanup brief before paying:
    mailto:331596501@qq.com?subject=Spreadsheet%20cleanup%20brief
 

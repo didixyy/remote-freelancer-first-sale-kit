@@ -18,11 +18,37 @@ jobs:
         with:
           script: |
             const labels = context.payload.issue.labels.map((label) => label.name);
-            if (!labels.includes("starter-task")) {
+            const isCsvCleanup = labels.includes("csv-cleanup");
+            const isStarterTask = labels.includes("starter-task");
+
+            if (!isCsvCleanup && !isStarterTask) {
               return;
             }
 
-            const body = [
+            const csvCleanupBody = [
+              "CSV cleanup request received.",
+              "",
+              "Fixed-scope check:",
+              "",
+              "- One CSV or Excel file.",
+              "- Up to 300 rows and 12 columns.",
+              "- Visible cleanup only: readable labels, spacing cleanup, obvious duplicate review, and a short change note.",
+              "- Not accounting, tax, legal, investment, audit, import troubleshooting, or data-verification work.",
+              "",
+              "Useful links:",
+              "",
+              "- Product CSV cleanup: https://didixyy.github.io/remote-freelancer-first-sale-kit/product-csv-cleanup.html",
+              "- Order export CSV cleanup: https://didixyy.github.io/remote-freelancer-first-sale-kit/order-export-csv-cleanup.html",
+              "- Invoice and contact CSV cleanup: https://didixyy.github.io/remote-freelancer-first-sale-kit/invoice-contact-csv-cleanup.html",
+              "- General spreadsheet cleanup: https://didixyy.github.io/remote-freelancer-first-sale-kit/spreadsheet-cleanup-service.html",
+              "- Payment after fixed scope is confirmed: https://paypal.me/yp1233/10USD",
+              "",
+              "If you already paid, make sure the request includes the Payment sender email so the payment can be matched to the task.",
+              "",
+              "Please keep private credentials, bank details, and payment card data out of the issue."
+            ].join("\\n");
+
+            const starterTaskBody = [
               "Thanks for sending a starter task brief.",
               "",
               "Please do not pay before the scope is confirmed.",
@@ -40,6 +66,8 @@ jobs:
               "",
               "Please keep private credentials, bank details, and payment card data out of the issue."
             ].join("\\n");
+
+            const body = isCsvCleanup ? csvCleanupBody : starterTaskBody;
 
             await github.rest.issues.createComment({
               owner: context.repo.owner,
