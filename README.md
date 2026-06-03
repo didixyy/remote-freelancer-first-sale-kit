@@ -33,6 +33,10 @@ Sample CSV cleanup delivery:
 
 https://didixyy.github.io/remote-freelancer-first-sale-kit/csv-cleanup-delivery-example.html
 
+Sample CSV cleanup delivery release:
+
+https://github.com/didixyy/remote-freelancer-first-sale-kit/releases/tag/csv-cleanup-delivery-example-v1
+
 10 USD spreadsheet cleanup service:
 
 https://didixyy.github.io/remote-freelancer-first-sale-kit/spreadsheet-cleanup-service.html
