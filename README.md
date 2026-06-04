@@ -6,6 +6,10 @@ Live page:
 
 https://didixyy.github.io/remote-freelancer-first-sale-kit/
 
+Focused CSV cleanup service repo:
+
+https://github.com/didixyy/csv-cleanup-service-10usd
+
 Fastest 10 USD order path:
 
 1. Start from the direct paid CSV cleanup page:
