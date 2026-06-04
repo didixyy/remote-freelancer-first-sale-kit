@@ -45,6 +45,7 @@ jobs:
             const columnCount = parsePositiveNumber(extractIssueFormValue(issueBody, "Column count"));
             const isPaidBrief = isCsvCleanup && paymentSenderEmail && paymentSenderEmail.toLowerCase() !== "_no response_";
             const isOverLimit = isCsvCleanup && ((rowCount !== null && rowCount > 300) || (columnCount !== null && columnCount > 12));
+            const isFixedScope = isCsvCleanup && rowCount !== null && columnCount !== null && rowCount <= 300 && columnCount <= 12;
             const shouldCreateInitialComment = action === "opened";
 
             const csvCleanupBody = [
@@ -87,6 +88,16 @@ jobs:
               );
             }
 
+            if (isFixedScope) {
+              desiredLabels.push("fixed-scope");
+              csvFollowUps.push(
+                "",
+                "Fixed-scope note:",
+                "",
+                "This request appears to fit the fixed 10 USD scope."
+              );
+            }
+
             if (isOverLimit) {
               desiredLabels.push("over-limit");
               csvFollowUps.push(
@@ -97,7 +108,7 @@ jobs:
               );
             }
 
-            const managedLabels = ["paid-brief", "over-limit"];
+            const managedLabels = ["paid-brief", "over-limit", "fixed-scope"];
             const labelsToAdd = desiredLabels.filter((label) => !labels.includes(label));
             const labelsToRemove = isCsvCleanup
               ? managedLabels.filter((label) => labels.includes(label) && !desiredLabels.includes(label))
