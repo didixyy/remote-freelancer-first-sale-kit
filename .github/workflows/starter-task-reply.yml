@@ -59,6 +59,7 @@ jobs:
               "",
               "Useful links:",
               "",
+              "- Start 10 USD CSV cleanup: https://didixyy.github.io/remote-freelancer-first-sale-kit/start-csv-cleanup.html",
               "- Product CSV cleanup: https://didixyy.github.io/remote-freelancer-first-sale-kit/product-csv-cleanup.html",
               "- Order export CSV cleanup: https://didixyy.github.io/remote-freelancer-first-sale-kit/order-export-csv-cleanup.html",
               "- Invoice and contact CSV cleanup: https://didixyy.github.io/remote-freelancer-first-sale-kit/invoice-contact-csv-cleanup.html",
@@ -111,6 +112,7 @@ jobs:
               "",
               "- Service page: https://didixyy.github.io/remote-freelancer-first-sale-kit/",
               "- Spreadsheet cleanup service: https://didixyy.github.io/remote-freelancer-first-sale-kit/spreadsheet-cleanup-service.html",
+              "- Start 10 USD CSV cleanup: https://didixyy.github.io/remote-freelancer-first-sale-kit/start-csv-cleanup.html",
               "- Samples: https://didixyy.github.io/remote-freelancer-first-sale-kit/samples.html",
               "- Free CSV cleanup tool: https://didixyy.github.io/remote-freelancer-first-sale-kit/csv-cleaner.html",
               "- 10 USD CSV scope checker: https://didixyy.github.io/remote-freelancer-first-sale-kit/scope-checker.html",
@@ -162,6 +164,7 @@ jobs:
                 labelsToRemove.length > 0 ? `Labels removed: ${labelsToRemove.join(", ")}` : "",
                 "",
                 "Payment sender email is used only to match a visible PayPal payment to this request.",
+                "Start page: https://didixyy.github.io/remote-freelancer-first-sale-kit/start-csv-cleanup.html",
                 "Scope checker: https://didixyy.github.io/remote-freelancer-first-sale-kit/scope-checker.html",
                 "Sample delivery: https://didixyy.github.io/remote-freelancer-first-sale-kit/csv-cleanup-delivery-example.html",
                 "Payment link for confirmed fixed-scope work: https://paypal.me/yp1233/10USD"
